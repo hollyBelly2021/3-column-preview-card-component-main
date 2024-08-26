@@ -79,27 +79,21 @@ h2 {
   border-radius: 0.5rem;
   margin: 1rem;
   overflow: hidden;
-
   color: var(--transparent-white);
 }
 /* 5 */
 @media (min-width: 780px) {
   .main-container {
-    /* This got an effect in columns */
-    /* overflow: hidden; prevents content overflow, which can indirectly affect the visibility of the rounded corners by ensuring the content doesn't extend beyond the element's boundaries. */
-    overflow: hidden;
     grid-template-columns: 1fr 1fr 1fr;
-    border-radius: 0.5rem;
   }
 }
 
 /* 6 */
 .item {
-  /* max-height: 33rem; */
   height: 33rem;
   background-color: var(--item-color);
 
-  padding: 3rem;
+  padding: 3.1rem;
   display: grid;
 }
 
@@ -138,10 +132,12 @@ button {
   border-radius: 100vh;
 
   height: 3rem;
+  width: 9rem;
 
   /* This definitely helps */
   /* since button is part of the grid system, I could manually select button element and use align-self: center to it. */
   align-self: center;
+  justify-self: start;
 }
 
 /* 11 */
