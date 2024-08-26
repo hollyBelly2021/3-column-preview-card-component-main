@@ -1,0 +1,142 @@
+@font-face {
+  font-family: "Lexend";
+  font-display: swap;
+  font-weight: 400;
+  src: url(assets/Lexend_Deca/LexendDeca-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: "Big Shoulder";
+  font-display: swap;
+  font-weight: 700;
+  src: url(assets/Big_Shoulders_Display/BigShouldersDisplay-VariableFont_wght.ttf);
+}
+
+:root {
+  /* NEUTRAL */
+
+  /* background, headings, buttons */
+  --very-light-grey: hsl(0, 0%, 95%);
+  /* paragraphs */
+  --transparent-white: hsla(0, 0%, 100%, 0.75);
+
+  /* PRIMARY */
+  --bright-orange: hsl(31, 77%, 52%);
+  --dark-cyan: hsl(184, 100%, 22%);
+  --very-dark-cyan: hsl(179, 100%, 13%);
+
+  --font-family-700: "Big Shoulder";
+  --font-family-400: "Lexend";
+  font-size: 15px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  font: inherit;
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  /* box-sizing: border-box; */
+}
+
+/* 1 */
+body {
+  font-size: 1rem;
+  background: var(--very-light-grey);
+}
+/* 2 */
+@media (min-width: 600px) {
+  body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+  }
+}
+
+/* 3 */
+h2 {
+  font-family: var(--font-family-700);
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+/* 4 */
+.main-container {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  max-width: 61rem;
+  height: 33rem;
+  border-radius: 0.5rem;
+  color: var(--transparent-white);
+}
+/* 5 */
+@media (min-width: 600px) {
+  .main-container {
+    /* This got an effect in columns */
+    overflow: hidden;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* 6 */
+.item {
+  /* max-height: 33rem; */
+  height: 33rem;
+  background-color: var(--item-color);
+
+  padding: 3rem;
+  display: grid;
+}
+
+/* 7 */
+.item[data-color="bright-orange"] {
+  --item-color: var(--bright-orange);
+}
+.item[data-color="dark-cyan"] {
+  --item-color: var(--dark-cyan);
+}
+.item[data-color="very-dark-cyan"] {
+  --item-color: var(--very-dark-cyan);
+}
+
+/* 8 */
+
+.item div {
+  line-height: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 0 0 2rem 0;
+}
+
+.item div p {
+  font-family: var(--font-family-400);
+}
+
+/* How did this happen? changes in color? */
+button {
+  font-family: var(--font-family-400);
+  color: var(--item-color);
+  border: 0;
+  border-radius: 100vh;
+  /* margin-bottom: 1rem; */
+  height: 3rem;
+  /* height: 2rem; */
+  /* This definitely helps */
+  align-self: center;
+}
+
+button:hover {
+  cursor: pointer;
+  border: 0.2rem var(--transparent-white) solid;
+  background: none;
+  color: var(--transparent-white);
+}
