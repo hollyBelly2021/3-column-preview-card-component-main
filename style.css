@@ -53,7 +53,8 @@ body {
   background: var(--very-light-grey);
 }
 /* 2 */
-@media (min-width: 600px) {
+/* if the width of the window is 780px and above center the body  */
+@media (min-width: 780px) {
   body {
     min-height: 100vh;
     display: grid;
@@ -71,18 +72,24 @@ h2 {
 /* 4 */
 .main-container {
   display: grid;
-  /* grid-template-columns: 1fr 1fr 1fr; */
+
   max-width: 61rem;
-  height: 33rem;
+  /* when the window shrunk height will limit container then so I have to delete it, so I could  manage it through overflow property*/
+  /* height: 32rem; */
   border-radius: 0.5rem;
+  margin: 1rem;
+  overflow: hidden;
+
   color: var(--transparent-white);
 }
 /* 5 */
-@media (min-width: 600px) {
+@media (min-width: 780px) {
   .main-container {
     /* This got an effect in columns */
+    /* overflow: hidden; prevents content overflow, which can indirectly affect the visibility of the rounded corners by ensuring the content doesn't extend beyond the element's boundaries. */
     overflow: hidden;
     grid-template-columns: 1fr 1fr 1fr;
+    border-radius: 0.5rem;
   }
 }
 
@@ -117,23 +124,27 @@ h2 {
   margin: 0 0 2rem 0;
 }
 
+/* 9 */
 .item div p {
   font-family: var(--font-family-400);
 }
 
-/* How did this happen? changes in color? */
+/* 10 */
+/* since I created a property of --item-variable for each '.item[data-color=""], everytime I will use the custom property it will automatically have the assigned color in the propery declarartion at step no.7 */
 button {
   font-family: var(--font-family-400);
   color: var(--item-color);
   border: 0;
   border-radius: 100vh;
-  /* margin-bottom: 1rem; */
+
   height: 3rem;
-  /* height: 2rem; */
+
   /* This definitely helps */
+  /* since button is part of the grid system, I could manually select button element and use align-self: center to it. */
   align-self: center;
 }
 
+/* 11 */
 button:hover {
   cursor: pointer;
   border: 0.2rem var(--transparent-white) solid;
